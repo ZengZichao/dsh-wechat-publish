@@ -1,0 +1,67 @@
+{
+  "name": "dsh-wechat-publish",
+  "version": "0.2.1",
+  "description": "DeepSeek Harness 0.2.x 插件：文献翻译（PDF → 中文 Markdown）与公众号推送发布（Markdown → 微信公众号草稿箱）两个 skill 的合集，并带可视化预览 / 发布 / 设置面板。",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./lib/skills.js": "./lib/skills.js",
+    "./lib/server.js": "./lib/server.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "icon": "./icon.svg",
+  "files": [
+    "index.js",
+    "client.js",
+    "lib",
+    "skills",
+    "scripts",
+    "locale/*.json",
+    "icon.svg",
+    "cordis.patch.yml",
+    "requirements.txt",
+    "docs",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "dsh",
+    "skill",
+    "wechat",
+    "wechat-publish",
+    "paper-translation",
+    "pdf",
+    "translate"
+  ],
+  "author": "zengzichao",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24.9",
+    "dsh": ">=0.2.2-rc.2 <0.3.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [],
+      "external": []
+    }
+  },
+  "dependencies": {
+    "mathjax-full": "^3.2.2"
+  },
+  "scripts": {
+    "bootstrap": "bash scripts/bootstrap-python.sh",
+    "check": "node --check index.js && node --check client.js && node --check lib/server.js && node --check lib/skills.js && node test/smoke.mjs",
+    "test": "npm run check && node test/panel-server.test.mjs && ./.venv/bin/python test/sanitize_test.py && ./.venv/bin/python test/publish_pipeline_test.py"
+  }
+}

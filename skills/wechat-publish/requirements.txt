@@ -1,0 +1,9 @@
+# 公众号推送发布 · Python 依赖
+# 安装: <python> -m pip install -r requirements.txt   （scripts/publish.sh 会自动挑选解释器）
+# 本机 managed venv 验证通过的组合: markdown 3.10.2 / requests 2.34.2 / premailer 3.10.0 / Pillow 12.2.0
+markdown>=3.5
+requests>=2.31
+premailer>=3.10
+
+# 规则 R13（配图压缩）与 R17（本地生成封面）的脚本需要 Pillow
+Pillow>=10.0

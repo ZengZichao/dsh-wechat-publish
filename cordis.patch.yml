@@ -1,0 +1,8 @@
+# dsh-wechat-publish — bundle layer.
+#
+# DSH applies this patch as one profile layer; the `insert` row mounts the host
+# half (index.js), which registers the bundled skills with ctx.skills.
+# The row id is stable so profile patches and re-installs can target it by id.
+- insert:
+    - id: dsh-wechat-publish
+      name: dsh-wechat-publish

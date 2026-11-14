@@ -1,0 +1,113 @@
+{
+  "schema_version": "1",
+  "capabilities": [
+    "pdf-ocr-extraction",
+    "pdf-to-markdown"
+  ],
+  "dependencies": [
+    {
+      "id": "pymupdf",
+      "type": "local-tool",
+      "required": true,
+      "auth_type": "none",
+      "capabilities": [
+        "pdf-ocr-extraction"
+      ],
+      "checks": [
+        {
+          "id": "pymupdf-import",
+          "type": "python",
+          "required": true,
+          "target": "fitz"
+        }
+      ],
+      "setup": {
+        "official_home_url": "https://github.com/pymupdf/PyMuPDF",
+        "official_docs_url": "https://pymupdf.readthedocs.io/",
+        "steps": [
+          "在目标 Python 中执行 pip install pymupdf pypdf",
+          "或用环境变量 MICRO_PY_BIN 指定该 Python 解释器路径"
+        ],
+        "verify": "python3 -c 'import fitz' 无报错",
+        "security": "纯本地库，无网络调用",
+        "verified_at": "2026-08-11",
+        "applies_to_version": "1.1.0"
+      },
+      "degradation": [
+        {
+          "capability": "pdf-ocr-extraction",
+          "trigger": "PyMuPDF 缺失且 PDF 为扫描件",
+          "fallback": "无可用抽取后端",
+          "user_input": "提示用户安装 pymupdf 或提供带文本层 PDF",
+          "limitations": "无法抽取扫描件文本",
+          "evidence_label": "推断",
+          "recovery": "安装 pymupdf 后重跑",
+          "stop_condition": "无任何可用工具时停止处理"
+        }
+      ]
+    },
+    {
+      "id": "ocrmypdf",
+      "type": "cli",
+      "required": false,
+      "auth_type": "none",
+      "capabilities": [
+        "pdf-ocr-extraction"
+      ],
+      "checks": [
+        {
+          "id": "ocrmypdf-present",
+          "type": "cli",
+          "required": false,
+          "target": "ocrmypdf",
+          "command": "ocrmypdf"
+        }
+      ],
+      "setup": {
+        "official_home_url": "https://github.com/ocrmypdf/OCRmyPDF",
+        "official_docs_url": "https://ocrmypdf.readthedocs.io/",
+        "steps": [
+          "pip install ocrmypdf"
+        ],
+        "verify": "ocrmypdf --version 无报错",
+        "security": "纯本地工具，Tesseract OCR 在本地运行",
+        "verified_at": "2026-08-11",
+        "applies_to_version": "1.1.0"
+      },
+      "degradation": [
+        {
+          "capability": "pdf-ocr-extraction",
+          "trigger": "PDF 为无文本层扫描件",
+          "fallback": "先用 ocrmypdf 生成文本层，再用 PyMuPDF 抽取",
+          "user_input": "提示用户安装 ocrmypdf 或提供带文本层 PDF",
+          "limitations": "OCR 质量受源 PDF 图像清晰度影响",
+          "evidence_label": "推断",
+          "recovery": "安装 ocrmypdf 后重跑",
+          "stop_condition": "OCR 后仍近乎为空时停止"
+        }
+      ]
+    }
+  ],
+  "functional_degradations": [
+    {
+      "capability": "pdf-ocr-extraction",
+      "trigger": "PyMuPDF 不可用，或扫描件 OCR 后仍近空",
+      "fallback": "停止翻译并提示用户提供带文本层的 PDF，不硬翻近空文本",
+      "user_input": "提示用户提供带文本层 PDF 或安装 pymupdf",
+      "limitations": "无法产出译文",
+      "evidence_label": "已验证",
+      "recovery": "安装 pymupdf 后重跑",
+      "stop_condition": "无可用抽取后端或扫描件不可识别时停止"
+    },
+    {
+      "capability": "pdf-to-markdown",
+      "trigger": "抽取文本无法可靠还原数学/化学式",
+      "fallback": "保留原文符号并加【原文符号】标注，不臆造公式",
+      "user_input": "无需用户输入，模型按 SKILL 六.2 处理",
+      "limitations": "公式/化学式可能以原文符号呈现而非 LaTeX",
+      "evidence_label": "已验证",
+      "recovery": "若源 PDF 公式清晰可尝试其他 PDF 解析工具",
+      "stop_condition": "无"
+    }
+  ]
+}

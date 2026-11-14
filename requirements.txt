@@ -1,0 +1,13 @@
+# dsh-wechat-publish · Python 依赖（两个 skill 合并）
+# 安装：bash scripts/bootstrap-python.sh
+# 本机验证组合：markdown 3.10 / requests 2.34 / premailer 3.10 / Pillow 12 / PyMuPDF 1.27 / pypdf 6
+
+# 公众号推送发布
+markdown>=3.5
+requests>=2.31
+premailer>=3.10
+Pillow>=10.0
+
+# 文献翻译（锁定 1.x：脚本使用 `import fitz`，2.x 已弃用该入口）
+pymupdf>=1.24,<2
+pypdf>=4.0

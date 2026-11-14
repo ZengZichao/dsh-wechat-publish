@@ -1,0 +1,217 @@
+{
+  "_comment": "常见期刊中英文名映射，供『文献翻译』Skill 确定化期刊名命名。extract_pdf.py 的 detect_journal 只用 en（标准全称，长度≥8）在首页做最佳努力匹配，命中即把规范化英文名写入 ===== PDF METADATA ===== 的 Journal 字段；abbr 不参与匹配（缩写串短、常出现在页眉与参考文献里，会误命中）。命名口径：默认一律使用 en（英文原名）；仅当用户明确要求中文刊名时才用 zh 并加书名号；表未收录的期刊一律保留英文原名，禁止臆造中文译名。",
+  "journals": [
+    {
+      "en": "Nature",
+      "zh": "自然"
+    },
+    {
+      "en": "Science",
+      "zh": "科学"
+    },
+    {
+      "en": "Cell",
+      "zh": "细胞"
+    },
+    {
+      "en": "Cell Host & Microbe",
+      "zh": "细胞宿主与微生物"
+    },
+    {
+      "en": "Cell Metabolism",
+      "zh": "细胞代谢"
+    },
+    {
+      "en": "Nature Reviews Microbiology",
+      "zh": "自然·微生物评论",
+      "abbr": "Nat Rev Microbiol"
+    },
+    {
+      "en": "Nature Microbiology",
+      "zh": "自然·微生物学",
+      "abbr": "Nat Microbiol"
+    },
+    {
+      "en": "Nature Biotechnology",
+      "zh": "自然·生物技术",
+      "abbr": "Nat Biotechnol"
+    },
+    {
+      "en": "Nature Communications",
+      "zh": "自然·通讯",
+      "abbr": "Nat Commun"
+    },
+    {
+      "en": "Nature Ecology & Evolution",
+      "zh": "自然·生态与进化",
+      "abbr": "Nat Ecol Evol"
+    },
+    {
+      "en": "Nature Medicine",
+      "zh": "自然·医学",
+      "abbr": "Nat Med"
+    },
+    {
+      "en": "Nature Genetics",
+      "zh": "自然·遗传学",
+      "abbr": "Nat Genet"
+    },
+    {
+      "en": "Nature Plants",
+      "zh": "自然·植物",
+      "abbr": "Nat Plants"
+    },
+    {
+      "en": "Proceedings of the National Academy of Sciences",
+      "zh": "美国国家科学院院刊",
+      "abbr": "PNAS"
+    },
+    {
+      "en": "The Lancet",
+      "zh": "柳叶刀"
+    },
+    {
+      "en": "New England Journal of Medicine",
+      "zh": "新英格兰医学杂志",
+      "abbr": "NEJM"
+    },
+    {
+      "en": "Trends in Ecology & Evolution",
+      "zh": "生态学与环境进化趋势",
+      "abbr": "Trends Ecol Evol"
+    },
+    {
+      "en": "Trends in Microbiology",
+      "zh": "微生物学趋势",
+      "abbr": "Trends Microbiol"
+    },
+    {
+      "en": "Trends in Biotechnology",
+      "zh": "生物技术趋势",
+      "abbr": "Trends Biotechnol"
+    },
+    {
+      "en": "Annual Review of Microbiology",
+      "zh": "微生物学年评",
+      "abbr": "Annu Rev Microbiol"
+    },
+    {
+      "en": "Annual Review of Ecology, Evolution, and Systematics",
+      "zh": "生态·进化与系统学年评",
+      "abbr": "Annu Rev Ecol Evol Syst"
+    },
+    {
+      "en": "Microbiome",
+      "zh": "微生物组"
+    },
+    {
+      "en": "The ISME Journal",
+      "zh": "国际微生物生态学会刊",
+      "abbr": "ISME J"
+    },
+    {
+      "en": "mBio",
+      "zh": "mBio"
+    },
+    {
+      "en": "eLife",
+      "zh": "eLife"
+    },
+    {
+      "en": "PLoS Biology",
+      "zh": "公共科学图书馆·生物学",
+      "abbr": "PLoS Biol"
+    },
+    {
+      "en": "PLoS Pathogens",
+      "zh": "公共科学图书馆·病原体",
+      "abbr": "PLoS Pathog"
+    },
+    {
+      "en": "PLoS ONE",
+      "zh": "公共科学图书馆·综合",
+      "abbr": "PLoS ONE"
+    },
+    {
+      "en": "Genome Biology",
+      "zh": "基因组生物学",
+      "abbr": "Genome Biol"
+    },
+    {
+      "en": "Genome Research",
+      "zh": "基因组研究",
+      "abbr": "Genome Res"
+    },
+    {
+      "en": "Proceedings of the Royal Society B",
+      "zh": "英国皇家学会会刊 B 辑",
+      "abbr": "Proc R Soc B"
+    },
+    {
+      "en": "Journal of Bacteriology",
+      "zh": "细菌学杂志",
+      "abbr": "J Bacteriol"
+    },
+    {
+      "en": "Applied and Environmental Microbiology",
+      "zh": "应用与环境微生物学",
+      "abbr": "Appl Environ Microbiol"
+    },
+    {
+      "en": "Environmental Microbiology",
+      "zh": "环境微生物学",
+      "abbr": "Environ Microbiol"
+    },
+    {
+      "en": "Water Research",
+      "zh": "水研究",
+      "abbr": "Water Res"
+    },
+    {
+      "en": "Environmental Science & Technology",
+      "zh": "环境科学与技术",
+      "abbr": "Environ Sci Technol"
+    },
+    {
+      "en": "Journal of Clinical Investigation",
+      "zh": "临床研究杂志",
+      "abbr": "J Clin Invest"
+    },
+    {
+      "en": "Immunity",
+      "zh": "免疫"
+    },
+    {
+      "en": "Science Advances",
+      "zh": "科学进展",
+      "abbr": "Sci Adv"
+    },
+    {
+      "en": "Communications Biology",
+      "zh": "通讯·生物学",
+      "abbr": "Commun Biol"
+    },
+    {
+      "en": "Frontiers in Microbiology",
+      "zh": "微生物学前沿",
+      "abbr": "Front Microbiol"
+    },
+    {
+      "en": "Scientific Reports",
+      "zh": "科学报告",
+      "abbr": "Sci Rep"
+    },
+    {
+      "en": "bioRxiv",
+      "zh": "bioRxiv"
+    },
+    {
+      "en": "arXiv",
+      "zh": "arXiv"
+    },
+    {
+      "en": "medRxiv",
+      "zh": "medRxiv"
+    }
+  ]
+}

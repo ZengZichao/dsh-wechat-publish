@@ -1,0 +1,11 @@
+{
+  "name": "gongzhonghao-publish",
+  "private": true,
+  "description": "Node-side dependency of the 公众号推送发布 skill: MathJax TeX -> raw SVG renderer used by scripts/render_math_raw.cjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "mathjax-full": "^3.2.2"
+  }
+}
